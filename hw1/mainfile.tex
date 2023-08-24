@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+
+\title{Introduction to Topological Manifolds, Lee - Homework 1}
+\author{suremark}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Problem 1}\,
+
+(a). $f$ is continuous.
+
+(b). $f$ is an open and closed mapping.
+
+(c). Let us first show that continuity on $X$ implies continuity at every point in $X$.\newline
+Let $x_0\in X$ and $U\in N(f(x_0))$ be arbitrary, where $N(x)$ denotes the collection of open neighborhoods of $x$. Then there exists $V\in N(x_0)$ such that $f(V)\subseteq U$;
+simply take $V=f^{-1}(U)$ which is open (by continuity on $X$) and contains $x_0$.\newline
+To show the converse, suppose $f$ is continuous at every point in $X$, and let $A\subseteq Z$ be an arbitrary open set. Take
+$$V=\bigcup\{\ V_x\ :\ x\in f^{-1}(A)\ \}$$
+where each $V_x$ is a neighborhood of $x$ such that $f(V_x)\subseteq A$. The existence of each $V_x$ is guaranteed by continuity at every point in $X$
+(simply take $x_0=x$ and $U=A$ in the definition of continuity at a point). By construction, $f(V)\subseteq A$ since $f(V_x)\subseteq A$, which imples $V\subseteq f^{-1}(A)$.
+But $V$ contains every point in $f^{-1}(A)$ since $x\in V_x$, which implies that $f^{-1}(A)\subseteq V$. Hence $V=f^{-1}(A)$. Since V is a union of open sets $V_x$,
+$V$ is clearly open, so $f^{-1}(A)$ is open.\newline
+Since $A$ was arbitrary, continuity on all of $X$ is proved.$\quad\blacksquare$
+
+\section{Problem 2}
+
+A manifold is a second-countable Hausdorff space locally homeomorphic to the Euclidean $d$-ball.
+For each $x\in M$ let $U_x\in N(x)$ such that there exists a homeomorphism $\varphi_x: U_x\to B^d$. Let $\{B_{x,i}\}_{i\in I}$ be a basis for $U_x$ induced by the homeomorphism to $B^d$.
+Our basis will simply be the union of every $\{B_{x,i}\}_{i\in I}$.\newline
+Now let $A\subseteq M$ be an arbitrary open set. One has that
+$$A=A\cap M=A\cap\bigcup_{x\in M}U_x=\bigcup_{x\in M}A\cap U_x$$
+which is a decomposition of $A$ into a union of open sets. Now, one has for each $x\in M$,
+$$A\cap U_x=\bigcup_{i\in I_x\subseteq I} B_{x,i}$$
+essentially saying $A\cap U_x$ can be represented as a union of elements from $\{B_{x,i}\}_{i\in I}$, since $B_{x,i}$ is a basis for $U_x$. It follows that
+$$A=\bigcup_{x\in M}\bigcup_{i\in I_x\subseteq I} B_{x,i}$$
+which gives $A$ as a union of open sets from our basis.
+
+\section{Problem 3}\,
+
+(a). $f:\mathbb{R}\to\mathbb{R}$ given by $f(x)=x\mod1$.
+
+(b). $f:\mathbb{R}\to\mathbb{R}$ given by $f(x)=\lfloor x\rfloor$.
+
+(c). $f:\mathbb{R}-\{0\}\to[-1, 1]$ given by $f(x)=\sin x^{-1}$.
+
+(d). $f:\mathbb{R}\to\mathbb{R}$ given by $f(x)=\frac{x}{x^2+1}$.
+
+(e). $f: \mathbb{R}\to\mathbb{R}$ given by $f(x)=\exp((x(1-x))^{-1})$ if $x\notin[0,1]$, and $0$ otherwise
+
+(f). $f:S^1\to[0,1)$ where $f(z)$ is the unique $t\in[0,1)$ such that $\exp(2i\pi t)=z$.
+
+\section{Problem 4}\,
+
+(a). The empty set is represented by the zeroes of $p(x)=1$. $\mathbb{C}$ is represented by the zeroes of $p(x)=0$.
+
+(b). Let $\{p_i(x)\}_{i\in I}$ be a family of polynomials (representing closed sets). Let $R_i$ be the set of roots for each $p_i$.
+Since each $R_i$ is finite, there is a unique monic polynomial whose roots are $\bigcap_{i\in I}R_i$, provided that it is nonempty.\newline
+If $R_i$ is empty then just choose $p(x)=1$.
+
+(c). $\{\ x\,:\,p(x)=0\ \}\cup\{\ x\,:\,q(x)=0\ \}=\{\ x\,:\,p(x)q(x)=0\ \}$
+
+\section{Problem 5}
+
+Let $\mathcal{U}$ be an open cover of $X$, i.e. a collection of open sets s.t. $\bigcup_{u\in\mathcal{U}}u=X$.
+
+(a). Let $U$ be open in $X$. Let $B_u$ be a basis for each $u\in\mathcal{U}$. Then
+$$U=U\cap X=U\cap(\bigcup_{u\in\mathcal{U}}u)=\bigcup_{u\in\mathcal{U}}U\cap u$$
+Now, let $\mathcal{F}_u\subseteq B_u$ such that $\bigcup_{f\in\mathcal{F}_u}f=U\cap u$ (since $B_u$ is a basis). Then
+$$U=\bigcup_{u\in\mathcal{U}}\bigcup_{f\in\mathcal{F}_u}f$$
+which is a union of open sets from $\bigcup_{u\in\mathcal{U}} B_u$ which forms a basis for $X$.
+
+(b). Second-countability of each element in the cover implies the existence of a family of countable bases $\{B_u\}_{u\in\mathcal{U}}$.
+Then it follows that, since $\mathcal{U}$ is a countable open cover, $\bigcup_{u\in\mathcal{U}}B_u$ is a countable open cover of all of $X$,
+since the union of a countable family of countable sets is also countable.
+
+\section{Problem 6}\,
+
+(a). $$d(f, g)=|f-g|=\left(\int_\mathbb{R}|f(t)-g(t)|^2dt\right)^{\frac{1}{2}}$$
+$$ d(f, g)=d(g, f)\quad\text{by symmetry of}\ |\cdot|$$
+$$d(f, g)\geq 0\quad\text{by non-negativity of}\ |\cdot|\text{, and}\ d(f, g)=0\iff|f(t)-g(t)|^2\sim0$$
+\begin{align*}
+	d(f, h) & = \left(\int_\mathbb{R}|f(t)-g(t)|^2dt\right)^\frac{1}{2}=\left(\int_\mathbb{R}|g(t)-g(t)+g(t)-h(t)|^2dt\right)^\frac{1}{2}                               \\
+	        & \leq \left(\int_\mathbb{R}|f(t)-g(t)|^2dt\right)^\frac{1}{2}+\left(\int_\mathbb{R}|g(t)-h(t)|^2dt\right)^\frac{1}{2}\quad\text{by Minkowski's inequality} \\
+	        & \leq d(f, g) + d(g, h).\quad\blacksquare
+\end{align*}
+
+(b). $$B_r(f)=\{\ g\,:\,\int_\mathbb{R}|f(t)-g(t)|^2dt\leq r^2\ \}\cong B_r(0)+f$$
+$U$ is first-countable and Hausdorff.\newline
+$f_n\to f\iff(\forall\varepsilon>0)(\exists N\in \mathbb{N})(\forall n\geq N)|f_n-f|<\varepsilon$, which is not equivalent to uniform continuity for functions on $\mathbb{R}$.
+
+(c). It suffices to show the primage of an open ball is open.
+$$+^{-1}(B_r(h))=\{\ (f, g)\,:\,|f+g-h|<r\ \}$$
+Now suppose $(f, g)\in+^{-1}(B_r(h))$. Let $\delta>0$, and let $(f', g')$ be such that $(|f'-f|^2+|g'-g|^2)^\frac{1}{2}<\delta$.\newline
+Then of course $|f'-f|<\delta$ and $|g'-g|<\delta$ by the properties of the Euclidean metric. Now,
+$$|f'-f-(-(g'-g))|\leq|f'-f|+|-(g'-g)|=|f'-f|+|g'-g|<2\delta\quad\text{by the triangle inequality.}$$
+Note that $|f'+g'-(f+g)|<2\delta$ and $|(f+g)-h|<r$. Then if we choose $\delta$ such that $2\delta<r-|f+g-h|$,
+$$|f'+g'-h|=|f'+g'-(f+g)+(f+g)-h|\leq|f'+g'-(f+g)|+|(f+g)-h|<2\delta+|(f+g)-h|<r$$
+From this it follows that every $(f, g)\in+^{-1}(B_r(h))$ has an open neighborhood of radius $\delta<\frac{1}{2}(r-|f+g-h|)$ inside the preimage, which proves continuity in the metric sense.
+
+Now let us prove continuity of $\times:\mathbb{R}\times U\to U$:
+$$\times^{-1}(B_r(g))=\{\ \lambda f\,:\,|\lambda f-g|<r\ \}.$$
+Let $(\lambda', f')$ such that $((\lambda'-\lambda)^2+|f'-f|^2)^\frac{1}{2}<\delta$.\newline
+Then of course $|\lambda'-\lambda|<\delta$ and $|f'-f|<\delta$ by the properties of the Euclidean metric. Now,
+\begin{align*}
+	|\lambda'f'-\lambda f| & = |(\lambda'-\lambda)f-\lambda(f'-f)|      \\
+	                       & \leq |\lambda'-\lambda||f|+|\lambda||f'-f| \\
+	                       & \leq\delta(|f|+|\lambda|).
+\end{align*}
+Now, $|\lambda f-g|<r$, so $\delta(|f|+|\lambda|)<r-|\lambda f-g|\implies|\lambda'f'-g|<r$ in a similar fashion to the previous argument with the $+$ function.
+If $|f|=|\lambda|=0$ then $\delta>0$ can be arbitrary. Otherwise, just choose $\delta<\frac{r-|\lambda f-g|}{|f|+|\lambda|}.$\newline
+Then $B_\delta((\lambda,f))\subseteq\times^{-1}(g).\quad\blacksquare$
+
+\end{document}
